@@ -6,24 +6,24 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-	Map<String, VirtualBaby> names=new HashMap<>();
-	
+	Map<String, VirtualBaby> babies = new HashMap<>();
+
 	public void add(VirtualBaby baby) {
-	names.put(baby.getBabyName(), baby);
-	
-	
+		babies.put(baby.getBabyName(), baby);
 	}
 
 	public VirtualBaby findBaby(String babyName) {
 		// TODO Auto-generated method stub
-		return names.get(babyName);
+		return babies.get(babyName);
 	}
 
 	public Collection<VirtualBaby> gettotalListofBabies() {
-		return names.values();
+		return babies.values();
 	}
 
-	
-		
+	public void adopt(VirtualBaby baby) {
+		babies.remove(baby.getBabyName(), baby);
+
 	}
 
+}

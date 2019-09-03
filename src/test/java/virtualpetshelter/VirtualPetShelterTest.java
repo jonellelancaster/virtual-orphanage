@@ -1,9 +1,10 @@
 package virtualpetshelter;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 
@@ -37,6 +38,17 @@ public class VirtualPetShelterTest {
 		underTest.add(baby2);
 		Collection<VirtualBaby> totalListofBabies= underTest.gettotalListofBabies();
 		assertThat(totalListofBabies, containsInAnyOrder(baby1, baby2));
+		assertEquals(2, totalListofBabies.size());	
+	}
+	@Test
+	public void shouldAdoptABaby() {
+		underTest.add(baby1);
+		underTest.adopt(baby1);
+		VirtualBaby retrieveBaby=underTest.findBaby(baby1.getBabyName());
+		assertThat(retrieveBaby, is(nullValue()));
 		
 	}
+	//What else would affect the map? build out test here first. 
+	
+	
 }

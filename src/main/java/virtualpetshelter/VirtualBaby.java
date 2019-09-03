@@ -9,12 +9,16 @@ public class VirtualBaby {
 	private int playTime = 50;
 	private int parentMentalState = 50;
 	private String babyName;
+	private String description;
 
 	public VirtualBaby(String babyName, String description) {
 	this.babyName=babyName;
+	this.description=description;
 	}
 
 	public int getHungry() {
+		
+		
 		return hungry;
 
 	}

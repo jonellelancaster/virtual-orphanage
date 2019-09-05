@@ -11,6 +11,8 @@ import java.util.Collection;
 import org.junit.Before;
 import org.junit.Test;
 
+import virtualpetshelter.VirtualBaby;
+
 public class VirtualPetShelterTest {
 
 	VirtualPetShelter underTest;
@@ -22,6 +24,7 @@ public class VirtualPetShelterTest {
 		underTest = new VirtualPetShelter();
 		baby1 = new VirtualBaby("babyname", "description");
 		baby2= new VirtualBaby("babyname2" , "description2");
+		
 	}
 
 	@Test
@@ -36,7 +39,7 @@ public class VirtualPetShelterTest {
 	public void shouldAddAnotherBaby() {
 		underTest.add(baby1);
 		underTest.add(baby2);
-		Collection<VirtualBaby> totalListofBabies= underTest.gettotalListofBabies();
+		Collection<VirtualBaby> totalListofBabies= underTest.getTotalListofBabies();
 		assertThat(totalListofBabies, containsInAnyOrder(baby1, baby2));
 		assertEquals(2, totalListofBabies.size());	
 	}
@@ -48,7 +51,18 @@ public class VirtualPetShelterTest {
 		assertThat(retrieveBaby, is(nullValue()));
 		
 	}
-	//What else would affect the map? build out test here first. 
+//	@Test
+//	public void shouldFeedAllBabiesby10() {
+//		underTest.add(baby1);
+//		underTest.add(baby2);
+//		VirtualBaby VirtualBaby=underTest.feedBabies(10);
+//		equals(60);
 	
 	
-}
+		
+	
+
+	}
+	
+	
+

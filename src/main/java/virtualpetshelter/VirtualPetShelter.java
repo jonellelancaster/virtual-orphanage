@@ -23,14 +23,23 @@ public class VirtualPetShelter {
 
 	public void adopt(VirtualBaby baby) {
 		babies.remove(baby.getBabyName(), baby);
+	}
+	public void tick(VirtualBaby baby) {
+		baby.tick();
+	}
+	
+		
+		
 
 	
 	
 
 	}
 
+	
 
-	}
+
+	
 
 	
 	

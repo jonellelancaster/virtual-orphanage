@@ -49,7 +49,7 @@ public class VirtualBaby {
 		teething -= 2;
 		playTime -= 1;
 
-		System.out.println("Baby is eating");
+		System.out.println(babyName+ " is eating.\n ");
 	}
 
 	public void sleep() {
@@ -59,7 +59,7 @@ public class VirtualBaby {
 		teething += 2;
 		playTime -= 2;
 
-		System.out.println("Baby is sleeping.");
+		System.out.println("Babies are sleeping.\n ");
 	}
 
 	public void changeDiaper() {
@@ -67,7 +67,7 @@ public class VirtualBaby {
 		energy += 2;
 		playTime += 2;
 
-		System.out.println("Baby is getting diaper changed.");
+		System.out.println("Babies are getting diapers changed.\n ");
 	}
 
 	public void tick() {
@@ -76,6 +76,7 @@ public class VirtualBaby {
 		diaper -= 2;
 		teething -= 2;
 		playTime -= 2;
+		System.out.println("tick");
 
 	}
 
@@ -83,12 +84,16 @@ public class VirtualBaby {
 		teething += 10;
 		energy -= 2;
 		hungry -= 1;
+		System.out.println("Babies are chewing on toys.\n ");
 
 	}
+	
+	
 
 	public void playWithBaby() {
 		playTime += 10;
 		energy -= 5;
+		System.out.println("Babies are playing.\n ");
 
 	}
 

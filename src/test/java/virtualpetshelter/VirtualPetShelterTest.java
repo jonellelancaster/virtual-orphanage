@@ -5,6 +5,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Collection;
 
@@ -23,8 +25,8 @@ public class VirtualPetShelterTest {
 	public void addNewBaby() {
 		underTest = new VirtualPetShelter();
 		baby1 = new VirtualBaby("babyname", "description");
-		baby2= new VirtualBaby("babyname2" , "description2");
-		
+		baby2 = new VirtualBaby("babyname2", "description2");
+
 	}
 
 	@Test
@@ -39,30 +41,43 @@ public class VirtualPetShelterTest {
 	public void shouldAddAnotherBaby() {
 		underTest.add(baby1);
 		underTest.add(baby2);
-		Collection<VirtualBaby> totalListofBabies= underTest.getTotalListofBabies();
+		Collection<VirtualBaby> totalListofBabies = underTest.getTotalListofBabies();
 		assertThat(totalListofBabies, containsInAnyOrder(baby1, baby2));
-		assertEquals(2, totalListofBabies.size());	
+		assertEquals(2, totalListofBabies.size());
 	}
+
 	@Test
 	public void shouldAdoptABaby() {
 		underTest.add(baby1);
 		underTest.adopt(baby1);
-		VirtualBaby retrieveBaby=underTest.findBaby(baby1.getBabyName());
+		VirtualBaby retrieveBaby = underTest.findBaby(baby1.getBabyName());
 		assertThat(retrieveBaby, is(nullValue()));
-		
-	}
-//	@Test
-//	public void shouldFeedAllBabiesby10() {
-//		underTest.add(baby1);
-//		underTest.add(baby2);
-//		VirtualBaby VirtualBaby=underTest.feedBabies(10);
-//		equals(60);
-	
-	
-		
-	
 
 	}
-	
-	
 
+	@Test
+	public void shouldFeedAllBabiesby10() {
+		// Arrange
+		underTest.add(baby1);
+		underTest.add(baby2);
+		// Action
+		underTest.feedAllBabies();
+		// Assertion
+		assertEquals(60, baby1.getHungry());
+		assertEquals(60, baby2.getHungry());
+	}
+
+	@Test
+	public void isBabyInShelterShouldBeTrueIfBabyIsThere() {
+		underTest.add(baby1);
+		boolean result = underTest.isBabyAdoptable(baby1.getBabyName());
+		assertTrue(result);
+	}
+	
+	@Test
+	public void ifBabyIsNotInShelterReturnFalse() {
+	boolean result = underTest.isBabyAdoptable("John");
+	assertFalse(result);
+	
+	}
+}

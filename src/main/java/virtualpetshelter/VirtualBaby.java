@@ -16,7 +16,7 @@ public class VirtualBaby {
 	}
 
 	public String toString() {
-		return babyName + description;
+		return babyName + "\t" + "|"+ description;
 	}
 
 	public int getHungry() {

@@ -6,40 +6,40 @@ import java.util.Map;
 
 public class VirtualPetShelter {
 
-	Map<String, VirtualBaby> babies = new HashMap<>();
-
+	Map<String, VirtualBaby> babiesInShelter = new HashMap<>();
 
 	public void add(VirtualBaby baby) {
-		babies.put(baby.getBabyName(), baby);
+		babiesInShelter.put(baby.getBabyName(), baby);
 	}
 
 	public VirtualBaby findBaby(String babyName) {
-		return babies.get(babyName);
+		return babiesInShelter.get(babyName);
 	}
 
 	public Collection<VirtualBaby> getTotalListofBabies() {
-		return babies.values();
+		return babiesInShelter.values();
 	}
 
 	public void adopt(VirtualBaby baby) {
-		babies.remove(baby.getBabyName(), baby);
+		babiesInShelter.remove(baby.getBabyName(), baby);
 	}
+
 	public void tick(VirtualBaby baby) {
 		baby.tick();
 	}
-	
-		
-		
 
-	
-	
+	public void feedAllBabies() {
+
+		for (VirtualBaby baby : babiesInShelter.values()) {
+			baby.feed();
+
+		}
 
 	}
 
-	
+	public boolean isBabyAdoptable(String babyName) {
+		return babiesInShelter.containsKey(babyName);
 
+	}
 
-	
-
-	
-	
+}

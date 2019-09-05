@@ -10,11 +10,11 @@ public class VirtualPetShelterApp {
 
 		Scanner input = new Scanner(System.in);
 
-		lonelyHeartOrphanage.add(new VirtualBaby("Sally\t", "|She is calm, quiet, and loves to cuddle."));
-		lonelyHeartOrphanage.add(new VirtualBaby("Quinton\t", "|He laughs all the time but, likes to get into trouble."));
-		lonelyHeartOrphanage.add(new VirtualBaby("Jane\t", "|She is a badass that is avanced beyond her age."));
-		lonelyHeartOrphanage.add(new VirtualBaby("Henry\t", "|Think Children Of The Corn. BEWARE"));
-		lonelyHeartOrphanage.add(new VirtualBaby("Lucy\t", "|Always is dancing and singing"));
+		lonelyHeartOrphanage.add(new VirtualBaby("Sally", "She is calm, quiet, and loves to cuddle."));
+		lonelyHeartOrphanage.add(new VirtualBaby("Quinton", "He laughs all the time but, likes to get into trouble."));
+		lonelyHeartOrphanage.add(new VirtualBaby("Jane", "She is a badass that is avanced beyond her age."));
+		lonelyHeartOrphanage.add(new VirtualBaby("Henry", "Think Children Of The Corn. BEWARE"));
+		lonelyHeartOrphanage.add(new VirtualBaby("Lucy", "Always is dancing and singing"));
 
 		System.out.println("Welcome to Lonely Hearts Orphanage. What is your name?");
 		
@@ -26,45 +26,41 @@ public class VirtualPetShelterApp {
 
 		userMenu();
 		
-		for (VirtualBaby babies : lonelyHeartOrphanage.getTotalListofBabies()) {
+		while (true) {
 
 			String menuChoice = input.nextLine();
 			
 		
 			if (menuChoice.equals("1")) {
-				
-//				lonelyHeartOrphanage.getTotalListofBabies().forEach(VirtualBaby -> babies.feed());// why is sally eating 5x																				
-//				babies.feed(); // why is sally the only one eating?
-				lonelyHeartOrphanage.tick(babies);
+				lonelyHeartOrphanage.feedAllBabies();
 				userMenu();
 				
 
-			} else if (menuChoice.equals("2")) {
-				babies.changeDiaper();
-				userMenu();
-
-			} else if (menuChoice.equals("3")) {
-				babies.giveTeether();
-				userMenu();
-
-			} else if (menuChoice.equals("4")) {
-				babies.playWithBaby();
-				userMenu();
-
+//			} else if (menuChoice.equals("2")) {
+//				babies.changeDiaper();
+//				userMenu();
+//
+//			} else if (menuChoice.equals("3")) {
+//				babies.giveTeether();
+//				userMenu();
+//
+//			} else if (menuChoice.equals("4")) {
+//				babies.playWithBaby();
+//				userMenu();
+//
 			} else if (menuChoice.equals("5")) {
 				System.out.println("Which baby would you like to take home?");
-				String babyToBeAdopted = input.nextLine();
-				if(babyToBeAdopted.equalsIgnoreCase(babies.getBabyName())) {
-				VirtualBaby babyName= lonelyHeartOrphanage.findBaby(babyToBeAdopted);
-					lonelyHeartOrphanage.adopt(babyName);
+				String babyNameToBeAdopted = input.nextLine();
+				
+				if(lonelyHeartOrphanage.isBabyAdoptable(babyNameToBeAdopted)){
+				VirtualBaby babyToBeAdopted= lonelyHeartOrphanage.findBaby(babyNameToBeAdopted);
+				lonelyHeartOrphanage.adopt(babyToBeAdopted);
+				System.out.println("Thank you for your purchase of " + babyToBeAdopted.getBabyName());
 				userMenu();
 				}else {
-				System.out.println("please choose a baby within our care.");
+				System.out.println("Please choose a baby within our care.");
 				userMenu();}
-			
-//				lonelyHeartOrphanage.adopt(lonelyHeartOrphanage.findBaby(babyToBeAdopted));
-				userMenu();
-
+//			
 			} else if (menuChoice.equals("6")) {
 				System.out.println("What is the name of the baby?");
 				String newBabyName = input.nextLine();
@@ -73,16 +69,18 @@ public class VirtualPetShelterApp {
 				lonelyHeartOrphanage.add(new VirtualBaby( newBabyName, newBabyDescription));
 				userMenu();
 				lonelyHeartOrphanage.getTotalListofBabies();
-
+//
 			} else if (menuChoice.equals("7")) {
+				
 				System.out.println("\tName:\t|Discription:\t");
 				System.out.println(
 						"----------------|------------------------------------------------------------------------");
-				System.out.println("\t" + babies);
-				System.out.println("\tHungry\t|Energy\t|Diaper\t|Teething|Play\n\t" + babies.getHungry() + "\t|"
-						+ babies.getEnergy() + "\t|" + babies.getDiaper() + "\t|" + babies.getTeething() + "\t |"
-						+ babies.getPlayTime() + "\n ");
-				
+				for(VirtualBaby baby: lonelyHeartOrphanage.getTotalListofBabies()) {
+				System.out.println("\t" + baby);
+				System.out.println("\tHungry\t|Energy\t|Diaper\t|Teething|Play\n\t" + baby.getHungry() + "\t|"
+						+ baby.getEnergy() + "\t|" + baby.getDiaper() + "\t|" + baby.getTeething() + "\t |"
+						+ baby.getPlayTime() + "\n ");
+				}
 				userMenu();
 
 			} else if (menuChoice.equals("8")) {

@@ -5,7 +5,7 @@ public class VirtualBaby {
 	private int hungry = 50;
 	private int energy = 50;
 	private int diaper = 50;
-	private int teething = 50;
+	private int thirst = 50;
 	private int playTime = 50;
 	private String babyName;
 	private String description;
@@ -16,7 +16,7 @@ public class VirtualBaby {
 	}
 
 	public String toString() {
-		return babyName + "\t" + "|"+ description;
+		return babyName + ":\t" + ""+ description;
 	}
 
 	public int getHungry() {
@@ -34,8 +34,8 @@ public class VirtualBaby {
 
 	}
 
-	public int getTeething() {
-		return teething;
+	public int getThirst() {
+		return thirst;
 	}
 
 	public int getPlayTime() {
@@ -46,7 +46,7 @@ public class VirtualBaby {
 		hungry += 10;
 		energy -= 1;
 		diaper -= 1;
-		teething -= 2;
+		thirst -= 2;
 		playTime -= 1;
 
 		System.out.println(babyName+ " is eating.\n ");
@@ -56,10 +56,10 @@ public class VirtualBaby {
 		energy += 10;
 		hungry -= 5;
 		diaper -= 10;
-		teething += 2;
+		thirst += 2;
 		playTime -= 2;
 
-		System.out.println("Babies are sleeping.\n ");
+		System.out.println( babyName+" is sleeping.\n ");
 	}
 
 	public void changeDiaper() {
@@ -67,24 +67,24 @@ public class VirtualBaby {
 		energy += 2;
 		playTime += 2;
 
-		System.out.println("Babies are getting diapers changed.\n ");
+		System.out.println(babyName+" is getting their diaper changed.\n ");
 	}
 
 	public void tick() {
 		hungry -= 2;
 		energy -= 2;
 		diaper -= 2;
-		teething -= 2;
+		thirst -= 2;
 		playTime -= 2;
-		System.out.println("tick");
+		
 
 	}
 
-	public void giveTeether() {
-		teething += 10;
+	public void giveDrink() {
+		thirst += 10;
 		energy -= 2;
 		hungry -= 1;
-		System.out.println("Babies are chewing on toys.\n ");
+		System.out.println(babyName +" is having a drink\n ");
 
 	}
 	
@@ -93,7 +93,7 @@ public class VirtualBaby {
 	public void playWithBaby() {
 		playTime += 10;
 		energy -= 5;
-		System.out.println("Babies are playing.\n ");
+		System.out.println( babyName+ " is playing.\n ");
 
 	}
 

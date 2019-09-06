@@ -24,9 +24,8 @@ public class VirtualPetShelter {
 		babiesInShelter.remove(baby.getBabyName(), baby);
 	}
 
-	public void tick(VirtualBaby baby) {
-		baby.tick();
-	}
+
+	
 
 	public void feedAllBabies() {
 
@@ -42,4 +41,44 @@ public class VirtualPetShelter {
 
 	}
 
-}
+	public void changeAllTheBabiesDiapers() {
+		for (VirtualBaby baby : babiesInShelter.values()) {
+			baby.changeDiaper();
+		}
+		
+		
+		
+	}
+
+	public void giveAllBabiesDrink() {
+		for(VirtualBaby baby: babiesInShelter.values()) {
+			baby.giveDrink();
+		}
+		
+	
+			
+		}
+
+	public boolean canPLayWithBaby(String babyName) {
+		return babiesInShelter.containsKey(babyName);
+	}
+
+	public void tickForAllBabies() {
+		for(VirtualBaby baby: babiesInShelter.values()) {
+			baby.tick();
+		}
+
+		}
+
+	public void playWithBaby(VirtualBaby baby) {
+		baby.playWithBaby();
+		
+	}
+		
+	}
+		
+	
+		
+	
+
+

@@ -1,4 +1,4 @@
-package virtualpetshelter;
+package virtualorphanage;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
@@ -14,15 +14,18 @@ import java.util.Collection;
 import org.junit.Before;
 import org.junit.Test;
 
-public class VirtualPetShelterTest {
+import virtualorphanage.VirtualBaby;
+import virtualorphanage.VirtualOrphanage;
 
-	VirtualPetShelter underTest;
+public class VirtualOrphanageTest {
+
+	VirtualOrphanage underTest;
 	VirtualBaby baby1;
 	VirtualBaby baby2;
 
 	@Before
 	public void addNewBaby() {
-		underTest = new VirtualPetShelter();
+		underTest = new VirtualOrphanage();
 		baby1 = new VirtualBaby("babyname", "description");
 		baby2 = new VirtualBaby("babyname2", "description2");
 

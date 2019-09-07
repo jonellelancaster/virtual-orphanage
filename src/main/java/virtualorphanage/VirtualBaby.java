@@ -1,4 +1,4 @@
-package virtualpetshelter;
+package virtualorphanage;
 
 public class VirtualBaby {
 
@@ -71,7 +71,7 @@ public class VirtualBaby {
 	}
 
 	public void tick() {
-		hungry -= 2;
+		hungry -= 2;// this.hungry=this.huger-=2; would provide hunger at this time. will be needed for static class
 		energy -= 2;
 		diaper -= 2;
 		thirst -= 2;

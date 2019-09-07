@@ -1,10 +1,10 @@
-package virtualpetshelter;
+package virtualorphanage;
 
 import java.util.Scanner;
 
-public class VirtualPetShelterApp {
+public class VirtualOrphanageApp {
 
-	static VirtualPetShelter lonelyHeartOrphanage = new VirtualPetShelter();
+	static VirtualOrphanage lonelyHeartOrphanage = new VirtualOrphanage();
 
 	public static void main(String[] args) {
 
@@ -102,15 +102,15 @@ public class VirtualPetShelterApp {
 				System.exit(0);
 
 			} else {
-				System.out.println("Enter a number 1-7");
+				System.out.println("Enter a number 1-8");
 				userMenu();
 
 			}
 
+			
+			
 		}
-
 	}
-
 	public static void userMenu() {
 
 		System.out.println("Press 1 to feed the children");
@@ -121,6 +121,6 @@ public class VirtualPetShelterApp {
 		System.out.println("Press 6 to leave a child you no longer want in our care");
 		System.out.println("Press 7 to see the babies available for adoption and a little about them");
 		System.out.println("Press 8 if you are disgusted with children and need to leave");
-
 	}
+
 }

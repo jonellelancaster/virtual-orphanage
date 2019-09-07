@@ -1,10 +1,10 @@
-package virtualpetshelter;
+package virtualorphanage;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class VirtualPetShelter {
+public class VirtualOrphanage {
 
 	Map<String, VirtualBaby> babiesInShelter = new HashMap<>();
 
